@@ -33,3 +33,25 @@ roleRef:
   kind: Role
   name: dashboard-dlh # El rol que creamos
   apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: global-reader
+rules:
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dlh-global-readonly-binding
+subjects:
+- kind: ServiceAccount
+  name: dlh-serviceaccount
+  namespace: dlh-namespace
+roleRef:
+  kind: ClusterRole
+  name: global-reader
+  apiGroup: rbac.authorization.k8s.io
