@@ -66,3 +66,23 @@ metadata:
 type: Opaque
 data:
   PASSWORD: "aG9sYQ=="
+---
+apiVersion: autoscaling/v2
+kind: horizontalpodautoscalers
+metadata:
+  name: mi-hpa
+  namespace: adonis
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: deployment
+    name: mi-deployment
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 100
