@@ -68,15 +68,15 @@ data:
   PASSWORD: "aG9sYQ=="
 ---
 apiVersion: autoscaling/v2
-kind: horizontalpodautoscalers
+kind: HorizontalPodAutoscaler
 metadata:
-  name: mi-hpa
-  namespace: adonis
+  name: dlh-hpa
+  namespace: dlh-namespace
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
-    kind: deployment
-    name: mi-deployment
+    kind: Deployment
+    name: mi-app-deployment
   minReplicas: 2
   maxReplicas: 5
   metrics:
