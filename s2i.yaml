@@ -22,12 +22,9 @@ spec:
       ref: main
     contextDir: ""
   strategy:
-    type: Source
+    type: Docker
     sourceStrategy:
-      from:
-        kind: ImageStreamTag
-        namespace: openshift
-        name: "python:3.12-ubi9"
+      dockerfilePath: py/Dockerfile 
   output:
     to:
       kind: ImageStreamTag
