@@ -1,0 +1,32 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: base
+  labels:
+    app: base
+spec:
+  lookupPolicy:
+    local: false
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: base
+  labels:
+    app: base
+spec:
+  source:
+    type: Git
+    git:
+      uri: "https://github.com/danielopezh/os.git"
+      ref: main
+    contextDir: ""
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: "py/DockerfileBase"
+  output:
+    to:
+      kind: ImageStreamTag
+      name: "base:1"
+
