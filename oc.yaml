@@ -33,6 +33,13 @@ spec:
           envFrom:
             - configMapRef:
                 name: mi-app-configmap
+          volumeMounts:
+            - name: datos
+              mountPath: "/app/data"
+      volumes:
+        - name: datos
+          persistentVolumeClaim:
+            claimName: dlh-pvc
 ---
 apiVersion: v1
 kind: Service
