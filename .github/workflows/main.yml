@@ -25,7 +25,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME  }}/oc
+          images: ${{ secrets.DOCKER_USERNAME  }}/os
           tags: |
             type=raw,value=build-${{ github.run_number }}
 
