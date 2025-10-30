@@ -1,5 +1,9 @@
 name: microservicio-1
 
+metadata:
+  labels:
+    app: mi-app-1
+
 # Kubernetes namespace to install into (can be overridden)
 namespace: daniel-lopez-fisa-dev
 
@@ -10,18 +14,17 @@ container:
   image: "daniel-lopez-fisa-dev/os"
   tag: "{{ tag }}"
   port: 3000
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "300Mi"
+    limits:
+      cpu: "4000m"
+      memory: "500Mi"
 
 service:
   type: ClusterIP
   port: 4000
-
-resources:
-  requests:
-    cpu: "200m"
-    memory: "300Mi"
-  limits:
-    cpu: "400m"
-    memory: "500Mi"
 
 hpa:
   minReplicas: 1
