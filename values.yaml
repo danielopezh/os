@@ -5,13 +5,13 @@ metadata:
     app: mi-app-1
 
 # Kubernetes namespace to install into (can be overridden)
-namespace: daniel-lopez-fisa-dev
+namespace: daniel-lopez-fisag-dev
 
 replicaCount: 1
 
 container:
   # Full image name without tag (e.g. 'adonispaz9506/hola-mundo-clase567')
-  image: "daniel-lopez-fisa-dev/os"
+  image: "daniel-lopez-fisag-dev/os"
   tag: "{{ tag }}"
   port: 3000
   resources:
