@@ -10,4 +10,5 @@ jobs:
     uses: danielopezh/devops-pipelines/.github/workflows/docker-workflow.yaml@main
     with:
       docker_image_name: os
+      micro_name: microservicio-1
     secrets: inherit
