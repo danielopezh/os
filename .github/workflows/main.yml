@@ -11,4 +11,5 @@ jobs:
     with:
       docker_image_name: os
       micro_name: microservicio-1
+      docker_file: ./py/Dockerfile
     secrets: inherit
